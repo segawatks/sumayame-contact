@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ｜スマホをやめれば魚が育つ</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans',
+                   'Noto Sans JP', sans-serif;
+      background: linear-gradient(160deg, #1a3a5c 0%, #1e6fa0 60%, #3ab0e2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 48px 40px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      box-shadow: 0 6px 20px rgba(26,58,92,0.22);
+      margin-bottom: 16px;
+    }
+
+    .app-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a3a5c;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1a2f45;
+      margin-bottom: 32px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #4a6278;
+      line-height: 1.8;
+      background: #e8f6fd;
+      border-left: 3px solid #3ab0e2;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 14px;
+      text-align: left;
+      margin-bottom: 28px;
+    }
+
+    .mail-link {
+      display: inline-block;
+      font-size: 15px;
+      color: #1e6fa0;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid #3ab0e2;
+      padding-bottom: 2px;
+      word-break: break-all;
+    }
+
+    .mail-link:hover {
+      color: #3ab0e2;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="img/400.png" alt="スマホをやめれば魚が育つ" class="app-icon">
+    <p class="app-name">スマホをやめれば魚が育つ / Drop Socials</p>
+    <h1>お問い合わせ / Contact Us</h1>
+
+    <p class="note">※個人開発のためすべてのお問い合わせへの返信や対応をお約束できません。重大な不具合の場合のみ対応させていただく場合があります。<br><br>As this is an indie app, I cannot guarantee a response to every inquiry. I may only be able to address critical bugs.</p>
+
+    <a class="mail-link" id="mailLink" href="#">読み込み中...</a>
+  </div>
+  <script>
+    const u = 'rikodesign.segawa';
+    const d = 'gmail.com';
+    const a = document.getElementById('mailLink');
+    a.href = 'mailto:' + u + '@' + d;
+    a.textContent = u + '@' + d;
+  </script>
+</body>
+</html>
