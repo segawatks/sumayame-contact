@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お問い合わせ｜スマホをやめれば魚が育つ</title>
+  <title>お問い合わせ｜スマホをやめれば魚が育つ / Focus & Fish</title>
+  <script>
+    // Detect browser language before render to avoid flash
+    (function() {
+      var lang = (navigator.language || navigator.userLanguage || 'ja').toLowerCase();
+      var initial = lang.indexOf('ja') === 0 ? 'ja' : 'en';
+      document.documentElement.setAttribute('data-lang', initial);
+      document.documentElement.setAttribute('lang', initial);
+    })();
+  </script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,11 +30,45 @@
     .card {
       background: #fff;
       border-radius: 28px;
-      padding: 48px 40px;
+      padding: 32px 40px 48px;
       max-width: 400px;
       width: 100%;
       text-align: center;
       box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .lang-tabs {
+      display: flex;
+      gap: 4px;
+      background: #eef4fa;
+      border-radius: 10px;
+      padding: 4px;
+      margin-bottom: 28px;
+    }
+
+    .lang-tab {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      font-weight: 700;
+      color: #6b8499;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s, box-shadow 0.15s;
+      font-family: inherit;
+      letter-spacing: 0.02em;
+    }
+
+    .lang-tab:hover {
+      color: #1a3a5c;
+    }
+
+    .lang-tab.active {
+      background: #fff;
+      color: #1a3a5c;
+      box-shadow: 0 2px 6px rgba(26,58,92,0.12);
     }
 
     .app-icon {
@@ -52,7 +95,7 @@
 
     .note {
       font-size: 12px;
-      color: #4a6278;
+      color: #2a4a5e;
       line-height: 1.8;
       background: #e8f6fd;
       border-left: 3px solid #3ab0e2;
@@ -60,7 +103,6 @@
       padding: 12px 14px;
       text-align: left;
       margin-bottom: 28px;
-      white-space: pre-line;
     }
 
     .mail-link {
@@ -77,24 +119,134 @@
     .mail-link:hover {
       color: #3ab0e2;
     }
+
+    .help-box {
+      margin-top: 32px;
+      padding: 14px 16px;
+      background: #fff7e6;
+      border-left: 3px solid #f0a830;
+      border-radius: 0 8px 8px 0;
+      text-align: left;
+    }
+
+    .help-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #8a5a10;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .help-body {
+      font-size: 12px;
+      color: #5a4520;
+      line-height: 1.8;
+    }
+
+    .help-body ul {
+      margin: 6px 0 10px 18px;
+      padding: 0;
+    }
+
+    .help-body li {
+      margin-bottom: 2px;
+    }
+
+    .help-body p {
+      margin-bottom: 8px;
+    }
+
+    .help-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Language switching */
+    html[data-lang="ja"] [data-lang-content="en"] { display: none; }
+    html[data-lang="en"] [data-lang-content="ja"] { display: none; }
   </style>
 </head>
 <body>
   <div class="card">
-    <img src="img/400.png" alt="スマホをやめれば魚が育つ" class="app-icon">
-    <p class="app-name">スマホをやめれば魚が育つ / Drop Socials</p>
-    <h1>お問い合わせ / Contact Us</h1>
+    <div class="lang-tabs" role="tablist" aria-label="Language">
+      <button class="lang-tab" data-lang="ja" role="tab">日本語</button>
+      <button class="lang-tab" data-lang="en" role="tab">English</button>
+    </div>
 
-    <p class="note" style="color:#2a4a5e;">※個人開発のため<u>すべてのお問い合わせへの返信や対応をお約束できません</u>。重大な不具合の場合のみ対応させていただく場合があります。<br>不具合報告の際はアプリ内の問い合わせボタンから送信していただくとアプリとiPhoneの情報が添付されますので対応しやすいです。<br><br>As this is an indie app, I cannot guarantee a response to every inquiry. I may only be able to address critical bugs. Please note that I can only reply in Japanese.</p>
+    <img src="img/400.png" alt="" class="app-icon">
+    <p class="app-name">
+      <span data-lang-content="ja">スマホをやめれば魚が育つ</span>
+      <span data-lang-content="en">Focus &amp; Fish</span>
+    </p>
+    <h1>
+      <span data-lang-content="ja">お問い合わせ</span>
+      <span data-lang-content="en">Contact Us</span>
+    </h1>
+
+    <div class="note">
+      <span data-lang-content="ja">※個人開発のため<u>すべてのお問い合わせへの返信や対応をお約束できません</u>。重大な不具合の場合のみ対応させていただく場合があります。<br>不具合報告の際はアプリ内の問い合わせボタンから送信していただくとアプリと iPhone の情報が添付されますので対応しやすいです。</span>
+      <span data-lang-content="en">As this is an indie app, <u>I cannot guarantee a response to every inquiry</u>. I may only be able to address critical bugs. When reporting a bug, please use the in-app contact button so that app and iPhone info are attached automatically. Please note that I can usually only reply in Japanese.</span>
+    </div>
 
     <a class="mail-link" id="mailLink" href="#">読み込み中...</a>
+
+    <div class="help-box">
+      <p class="help-title">
+        <span data-lang-content="ja">選択したアプリがブロックされない / 選んでいないアプリがブロックされるとき</span>
+        <span data-lang-content="en">Selected apps aren't blocked / wrong apps are blocked</span>
+      </p>
+      <div class="help-body">
+        <div data-lang-content="ja">
+          <p>Apple のスクリーンタイム側の不具合により、本アプリに限らず類似アプリ（Forest 等）でも発生することがあります。以下をお試しください。</p>
+          <ul>
+            <li><strong>ブロック対象のアプリを一度解除し、選び直す</strong>（最も効果が高いです）</li>
+            <li>iPhone 以外の端末（iPad / Mac 等）の<strong>スクリーンタイムをオフ</strong>にする</li>
+            <li>iOS を最新バージョンに<strong>アップデート</strong>する</li>
+            <li>iPhone を<strong>再起動</strong>する</li>
+          </ul>
+          <p>それでも解消しない場合は、上記の「アプリ内の問い合わせボタン」からご連絡ください。</p>
+        </div>
+        <div data-lang-content="en">
+          <p>This is a known issue with Apple's Screen Time API that affects many similar apps (including Forest). Please try the following:</p>
+          <ul>
+            <li><strong>Re-select the blocked apps</strong> — remove them once and pick them again (most effective)</li>
+            <li>Turn <strong>Screen Time off</strong> on other devices (iPad / Mac)</li>
+            <li><strong>Update iOS</strong> to the latest version</li>
+            <li><strong>Restart</strong> your iPhone</li>
+          </ul>
+          <p>If it still doesn't resolve, please contact me through the in-app contact button above.</p>
+        </div>
+      </div>
+    </div>
   </div>
+
   <script>
-    const u = 'rikodesign.segawa';
-    const d = 'gmail.com';
-    const a = document.getElementById('mailLink');
-    a.href = 'mailto:' + u + '@' + d;
-    a.textContent = u + '@' + d;
+    // Email obfuscation
+    (function() {
+      var u = 'rikodesign.segawa';
+      var d = 'gmail.com';
+      var a = document.getElementById('mailLink');
+      a.href = 'mailto:' + u + '@' + d;
+      a.textContent = u + '@' + d;
+    })();
+
+    // Language tabs
+    (function() {
+      var tabs = document.querySelectorAll('.lang-tab');
+      function setLang(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+        tabs.forEach(function(t) {
+          t.classList.toggle('active', t.getAttribute('data-lang') === lang);
+        });
+      }
+      tabs.forEach(function(t) {
+        t.addEventListener('click', function() {
+          setLang(t.getAttribute('data-lang'));
+        });
+      });
+      // Sync initial active state with the lang set in <head>
+      setLang(document.documentElement.getAttribute('data-lang') || 'ja');
+    })();
   </script>
 </body>
 </html>
