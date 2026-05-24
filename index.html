@@ -153,6 +153,14 @@
       margin-bottom: 0;
     }
 
+    .help-img {
+      display: block;
+      width: 100%;
+      margin: 12px 0 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(26,58,92,0.18);
+    }
+
     /* Language switching */
     html[data-lang="ja"] [data-lang-content="en"] { display: none; }
     html[data-lang="en"] [data-lang-content="ja"] { display: none; }
@@ -194,6 +202,7 @@
             <li>iOS を最新バージョンに<strong>アップデート</strong>する</li>
             <li>iPhone を<strong>再起動</strong>する</li>
           </ul>
+          <p>YouTube などが意図せずブロックされる場合は、<strong>m.youtube.com</strong> など対象アプリに関連するドメインのチェックも外してください。</p>
         </div>
         <div data-lang-content="en">
           <p>This is a known issue with Apple's Screen Time API that affects many similar apps (including Forest). Please try the following:</p>
@@ -203,8 +212,21 @@
             <li><strong>Update iOS</strong> to the latest version</li>
             <li><strong>Restart</strong> your iPhone</li>
           </ul>
+          <p>If apps like YouTube get blocked unintentionally, also uncheck related domains such as <strong>m.youtube.com</strong>.</p>
           <p>If it still doesn't resolve, please contact me through the in-app contact button above.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="help-box">
+      <p class="help-title">
+        <span data-lang-content="ja">操作できなくなった / 画面が固まったとき</span>
+        <span data-lang-content="en">If the screen becomes unresponsive</span>
+      </p>
+      <div class="help-body">
+        <p data-lang-content="ja">画面右上のハートアイコンを<strong>長押し（約3秒）</strong>してみてください。魚・ゴールド・グラフに影響なく画面をリセットできます。</p>
+        <p data-lang-content="en">Press and hold the <strong>heart icon (about 3 seconds)</strong> in the top-right of the screen. This resets the screen without affecting your fish, gold, or graphs.</p>
+        <img src="img/resetimg.png" alt="ハートアイコンを3秒長押しで画面をリセット" class="help-img">
       </div>
     </div>
 
@@ -214,7 +236,7 @@
   <script>
     // Email obfuscation
     (function() {
-      var u = 'rikodesign.segawa';
+      var u = 'sumayamesupport';
       var d = 'gmail.com';
       var a = document.getElementById('mailLink');
       a.href = 'mailto:' + u + '@' + d;
